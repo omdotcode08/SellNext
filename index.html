@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellNext - Your Local Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'spin': 'spin 1s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-purple-600 to-blue-600 text-white py-16 text-center min-h-screen flex items-center justify-center">
+        <div class="max-w-4xl mx-auto px-5">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent animate-fade-in-up">
+                SellNext
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Your Local Marketplace for Buying and Selling
+            </p>
+            
+            <!-- User Role Selection -->
+            <div class="mb-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <h2 class="text-3xl font-semibold mb-8">Choose Your Role</h2>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <div class="role-card bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/20 hover:shadow-2xl min-w-[250px]">
+                        <i class="fas fa-shopping-cart text-5xl mb-4 text-white"></i>
+                        <h3 class="text-2xl font-semibold mb-2">Buyer</h3>
+                        <p class="opacity-90 text-sm">Discover amazing products from local sellers</p>
+                    </div>
+                    <div class="role-card bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:bg-white/20 hover:shadow-2xl min-w-[250px]">
+                        <i class="fas fa-store text-5xl mb-4 text-white"></i>
+                        <h3 class="text-2xl font-semibold mb-2">Seller</h3>
+                        <p class="opacity-90 text-sm">Sell your products to local buyers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Selection -->
+            <div class="mb-12 animate-fade-in-up" style="animation-delay: 0.6s;">
+                <h2 class="text-3xl font-semibold mb-8">Select Your Location</h2>
+                <div class="flex flex-col md:flex-row items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2 max-w-lg mx-auto">
+                    <i class="fas fa-map-marker-alt text-white ml-4 mr-2 text-lg"></i>
+                    <input type="text" id="location-input" placeholder="Enter your city or zip code" 
+                           class="flex-1 bg-transparent border-none text-white placeholder-white/70 p-4 text-lg outline-none">
+                    <button id="detect-location" class="detect-btn bg-white/20 border-none text-white px-6 py-3 rounded-full cursor-pointer transition-all duration-300 font-medium flex items-center gap-2 hover:bg-white/30 hover:transform hover:-translate-y-1">
+                        <i class="fas fa-crosshairs"></i>
+                        Detect
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Section -->
+            <div class="animate-fade-in-up" style="animation-delay: 0.8s;">
+                <div class="flex flex-col md:flex-row items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2 max-w-2xl mx-auto">
+                    <i class="fas fa-search text-white ml-4 mr-2 text-lg"></i>
+                    <input type="text" id="search-input" placeholder="Search for products..." 
+                           class="flex-1 bg-transparent border-none text-white placeholder-white/70 p-4 text-lg outline-none">
+                    <button id="search-btn" class="bg-green-500 border-none text-white px-8 py-3 rounded-full cursor-pointer transition-all duration-300 font-medium hover:bg-green-600 hover:transform hover:-translate-y-1">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-100">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-semibold mb-6 text-gray-800">About SellNext</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        SellNext is your trusted local marketplace connecting buyers and sellers in your community. We believe in the power of local commerce and building strong community relationships.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 bg-white/50 backdrop-blur-md rounded-xl">
+                            <i class="fas fa-shield-alt text-2xl text-purple-600 w-10 text-center"></i>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Secure Transactions</h3>
+                                <p class="text-gray-600 text-sm">Safe and secure payment processing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white/50 backdrop-blur-md rounded-xl">
+                            <i class="fas fa-users text-2xl text-purple-600 w-10 text-center"></i>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Local Community</h3>
+                                <p class="text-gray-600 text-sm">Connect with people in your area</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white/50 backdrop-blur-md rounded-xl">
+                            <i class="fas fa-mobile-alt text-2xl text-purple-600 w-10 text-center"></i>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Easy to Use</h3>
+                                <p class="text-gray-600 text-sm">Simple and intuitive interface</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="w-full h-64 bg-gradient-to-br from-purple-400 to-blue-500 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-store text-6xl text-white opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-4xl font-semibold text-center mb-12 text-gray-800">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Choose Your Role</h3>
+                    <p class="opacity-90 leading-relaxed">Decide whether you want to buy or sell</p>
+                </div>
+                <div class="text-center p-8 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-semibold mb-4">Set Your Location</h3>
+                    <p class="opacity-90 leading-relaxed">Enter your location to find local deals</p>
+                </div>
+                <div class="text-center p-8 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-semibold mb-4">Start Trading</h3>
+                    <p class="opacity-90 leading-relaxed">Browse products or list your items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

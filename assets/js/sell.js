@@ -1,0 +1,1 @@
+//Js handler for sell page

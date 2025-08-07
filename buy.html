@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Products - SellNext India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'spin': 'spin 1s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-purple-600 to-blue-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">Buy Products</h1>
+                <p class="text-xl md:text-2xl opacity-90">Discover amazing products from local sellers across India</p>
+            </div>
+            
+            <!-- Search and Filter Section -->
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-4 mb-8">
+                    <div class="flex-1">
+                        <div class="flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2">
+                            <i class="fas fa-search text-white ml-4 mr-2 text-lg"></i>
+                            <input type="text" id="search-input" placeholder="Search for products..." 
+                                   class="flex-1 bg-transparent border-none text-white placeholder-white/70 p-4 text-lg outline-none">
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <select id="category-filter" class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-4 text-white text-lg outline-none">
+                            <option value="">All Categories</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Books">Books</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Home">Home & Garden</option>
+                        </select>
+                        <select id="location-filter" class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-4 text-white text-lg outline-none">
+                            <option value="">All Locations</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Kolkata">Kolkata</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-semibold text-gray-800">Available Products</h2>
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-600">Sort by:</span>
+                    <select id="sort-filter" class="border border-gray-300 rounded-lg px-4 py-2 text-gray-700">
+                        <option value="recent">Most Recent</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="products-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more-btn" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                    Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-3xl font-semibold text-center mb-12 text-gray-800">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-mobile-alt text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Electronics</h3>
+                </div>
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-tshirt text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Clothing</h3>
+                </div>
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-couch text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Furniture</h3>
+                </div>
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-book text-4xl text-yellow-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Books</h3>
+                </div>
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-futbol text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Sports</h3>
+                </div>
+                <div class="category-card bg-white rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl">
+                    <i class="fas fa-home text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Home</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/buy.js"></script>
+</body>
+</html>
