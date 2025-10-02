@@ -1,0 +1,48 @@
+{
+  "name": "sellnext",
+  "version": "1.0.0",
+  "description": "Your Local Marketplace for Buying and Selling",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "server": "cd server & npm run dev",
+    "server-simple": "cd server & npm run simple",
+    "install-all": "npm install & cd server & npm install",
+    "dev-all": "concurrently \"npm run server\" \"npm run dev\"",
+    "start-server": "node server/server.js",
+    "test-connection": "node server/test-server.js"
+  },
+  "dependencies": {
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.36.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "vite": "^4.5.14"
+  },
+  "keywords": [
+    "marketplace",
+    "local",
+    "buying",
+    "selling",
+    "react"
+  ],
+  "author": "SellNext Team",
+  "license": "MIT"
+}
