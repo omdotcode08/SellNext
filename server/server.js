@@ -12,7 +12,7 @@ dotenv.config();
 
 // Fallback environment variables if .env is not loaded
 if (!process.env.MONGODB_URI) {
-  process.env.MONGODB_URI = 'mongodb+srv://ommanglani88dbuser:7058223923OM@sellnextcluster.0s4k5f3.mongodb.net/?retryWrites=true&w=majority&appName=SellNextcluster';
+  process.env.MONGODB_URI = 'mongodb+srv://ommanglani88dbuser:7058223923OM@sellnextcluster.0s4k5f3.mongodb.net/?retryWrites=true&w=majority&appName=SellNextcluster&ssl=true&authSource=admin';
 }
 if (!process.env.JWT_SECRET) {
   process.env.JWT_SECRET = 'your-super-secret-jwt-key-change-this-in-production';
