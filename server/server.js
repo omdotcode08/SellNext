@@ -30,10 +30,18 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
+// Consolidated allowed origins for CORS and Socket.IO
+const allowedOrigins = [
+  process.env.CLIENT_URL || 'http://localhost:5173',
+  'http://localhost:3000',
+  'https://sellnext.onrender.com',
+  'https://sellnext-1.onrender.com'
+];
+
 // Setup Socket.io with CORS
 const io = socketIo(server, {
   cors: {
-    origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'http://localhost:3000'],
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
     credentials: true
   }
@@ -41,7 +49,7 @@ const io = socketIo(server, {
 
 // Middleware
 app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'http://localhost:3000'],
+  origin: allowedOrigins,
   credentials: true
 }));
 

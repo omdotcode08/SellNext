@@ -35,7 +35,7 @@ export const MessagingProvider = ({ children }) => {
     if (isAuthenticated && user) {
       const token = apiService.getAuthToken()
       if (token) {
-        const newSocket = io(import.meta.env.VITE_API_URL || 'http://localhost:5000', {
+        const newSocket = io(import.meta.env.VITE_API_URL || 'https://sellnext.onrender.com', {
           auth: { token }
         })
 
